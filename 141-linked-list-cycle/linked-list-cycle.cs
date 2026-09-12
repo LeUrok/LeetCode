@@ -11,20 +11,19 @@
  */
 public class Solution {
     public bool HasCycle(ListNode head) {
-        if (head?.next != null)
+        if (head != null && head.next != null)
         {
             ListNode p = head;
             ListNode q = head.next;
 
-            while (q != p)
+            while (q != null && q.next != null)
             {
-                if (q?.next == null) return false;
                 q = q.next.next;
                 p = p.next;
 
-                
+                if (p == q)
+                    return true;
             }
-            return true;
         }
         return false;
     }
