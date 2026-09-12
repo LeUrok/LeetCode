@@ -14,7 +14,7 @@ public class Solution {
         if (head != null && head.next != null)
         {
             ListNode p = head;
-            ListNode q = head;
+            ListNode q = head.next;
 
             while (q != null && q.next != null)
             {
