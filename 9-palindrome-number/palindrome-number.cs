@@ -1,23 +1,19 @@
 public class Solution {
     public bool IsPalindrome(int x) {
-        if (x < 0) return false;
-        if (x == 0) return true;
+        if (x < 0 || x % 10 == 0 && x != 0) return false;
+        if (x < 10) return true;
 
-        List<int> arr = new List<int>();
+        int rev = 0;
 
-        while (x > 0)
+        while (rev < x)
         {
-            arr.Add(x % 10);
+            rev = rev * 10 + (x % 10);
             x = x / 10;
         }
+        if (x == rev || rev / 10 == x)
+            return true;
 
-        for (int i = 0; i < arr.Count / 2; i++)
-        {
-            if (arr[i] != arr[arr.Count - 1 - i])
-                return false;
-        }
+        return false;
 
-        return true;
-        
     }
 }
